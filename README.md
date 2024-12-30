@@ -9,7 +9,7 @@ This script is designed for fuzz testing web applications by sending various pay
    To perform fuzzing with a wordlist using the default `GET` method, run the following command:
 
    ```bash
-   python fuzz.py /path/to/wordlist.txt 10 http://example.com/FUZZ
+   python fuzz.py /path/to/wordlist.txt 10 http://example.com/?username=FUZZ
    ```
 
    This will send requests to `http://example.com/FUZZ` and replace the `FUZZ` keyword with each entry from the wordlist. The script will send 10 requests per second.
@@ -19,10 +19,10 @@ This script is designed for fuzz testing web applications by sending various pay
    To fuzz a `POST` request with body parameters, use the following:
 
    ```bash
-   python fuzz.py /path/to/wordlist.txt 5 http://example.com/api --method POST --body "username=FUZZ&password=test" --cookies "sessionid=12345" --headers "Content-Type: application/x-www-form-urlencoded"
+   python fuzz.py /path/to/wordlist.txt 5 http://example.com/api --method POST --body "username=FUZZ&password=test" --headers "Content-Type: application/x-www-form-urlencoded"
    ```
 
-   This will replace `FUZZ` in the body (`username=FUZZ&password=test`) with each entry from the wordlist and send `POST` requests to the API. The script will also include a cookie and header for each request.
+   This will replace `FUZZ` in the body (`username=FUZZ&password=test`) with each entry from the wordlist and send `POST` requests to the endpoint. The script will also include a header for each request.
 
 3. **Custom Headers and Cookies**
 
