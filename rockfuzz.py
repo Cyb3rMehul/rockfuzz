@@ -60,7 +60,7 @@ def main():
         output.append([status_code, length, response_time, payload])
         time.sleep(1 / args.rps)
     
-    with open("output.txt", "w", newline="") as csvfile:
+    with open("output.csv", "w", newline="") as csvfile:
         writer = csv.writer(csvfile)
         writer.writerow(["Status Code", "Length", "Response Time", "Payload"])
         writer.writerows(output)
